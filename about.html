@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ved.digital</title>
+    <meta name="description" content="Learn about Ved.digital's mission to bridge ancient Vedic wisdom with modern technology.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="favicon_io/favicon-32x32.png" type="image/x-icon">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0A0A0A; color: #FFFFFF; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+        .gradient-text { background: linear-gradient(135deg, #FF6B35 0%, #FF8F5C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .gradient-bg { background: linear-gradient(135deg, #FF6B35 0%, #FF8F5C 100%); }
+        .glass-effect { background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); }
+        .hover-lift { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3); }
+        .nav-link { position: relative; transition: all 0.3s ease; font-weight: 500; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: #FF6B35; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .animated-bg { background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%); background-size: 200% 200%; animation: gradient-shift 15s ease infinite; }
+        @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .card-premium { background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%); border: 1px solid rgba(255, 107, 53, 0.2); border-radius: 16px; transition: all 0.4s ease; }
+        .card-premium:hover { border-color: rgba(255, 107, 53, 0.5); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2); }
+        .btn-primary { background: linear-gradient(135deg, #FF6B35 0%, #FF8F5C 100%); color: white; padding: 14px 32px; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5); }
+        .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent); }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        .floating { animation: float 6s ease-in-out infinite; }
+    </style>
+    
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#FF6B35', secondary: '#FF8F5C' } } } }
+    </script>
+</head>
+<body class="animated-bg">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <img src="logo.png" alt="Ved.digital Logo" class="h-12 w-12 transition-transform duration-300 group-hover:rotate-12">
+                    <span class="text-2xl font-bold gradient-text">Ved.digital</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-100 hover:text-primary">Home</a>
+                    <a href="about.html" class="nav-link text-orange-500">About</a>
+                    <a href="services.html" class="nav-link text-gray-100 hover:text-primary">Services</a>
+                    <a href="portfolio.html" class="nav-link text-gray-100 hover:text-primary">Portfolio</a>
+                    <a href="insights.html" class="nav-link text-gray-100 hover:text-primary">Insights</a>
+                    <a href="contact.html" class="gradient-bg text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-bold">Contact Us</a>
+                </div>
+                
+                <button class="md:hidden text-gray-100" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="hidden md:hidden glass-effect" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="index.html" class="block text-gray-100 hover:text-primary transition-colors">Home</a>
+                <a href="about.html" class="block text-orange-500">About</a>
+                <a href="services.html" class="block text-gray-100 hover:text-primary transition-colors">Services</a>
+                <a href="portfolio.html" class="block text-gray-100 hover:text-primary transition-colors">Portfolio</a>
+                <a href="insights.html" class="block text-gray-100 hover:text-primary transition-colors">Insights</a>
+                <a href="contact.html" class="block gradient-bg text-white px-6 py-2 rounded-full text-center font-bold">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20 relative overflow-hidden">
+        <div class="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full blur-3xl floating"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <span class="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400 text-sm font-semibold inline-block mb-6">
+                    Our Story
+                </span>
+                <h1 class="text-6xl md:text-7xl font-bold mb-6">About <span class="gradient-text">Ved.digital</span></h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                    Bridging timeless Vedic wisdom with cutting-edge technology to create intelligent digital solutions
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission Section -->
+    <section class="py-32 relative">
+        <div class="section-divider mb-20"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                <div data-aos="fade-right">
+                    <div class="card-premium p-2 rounded-3xl">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" 
+                             alt="Digital Innovation" 
+                             class="rounded-2xl w-full h-96 object-cover">
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Mission</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Transforming <span class="gradient-text">Digital Futures</span></h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        At Ved.digital, we bridge timeless wisdom with tomorrow's technology. Inspired by ancient Vedic insights and modern digital precision, we specialize in <strong class="text-orange-500">Artificial Intelligence</strong>, <strong class="text-orange-500">Blockchain</strong>, and <strong class="text-orange-500">Advanced Web Development</strong>.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Our mission is to cultivate sustainable digital transformation through intelligent solutions that grow organically with your business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="text-5xl font-bold gradient-text mb-2">50+</div>
+                    <div class="text-gray-500 text-sm">Projects</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-bold gradient-text mb-2">30+</div>
+                    <div class="text-gray-500 text-sm">Clients</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-bold gradient-text mb-2">15+</div>
+                    <div class="text-gray-500 text-sm">Team</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-bold gradient-text mb-2">5+</div>
+                    <div class="text-gray-500 text-sm">Years</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="py-32 relative">
+        <div class="section-divider mb-20"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Values</span>
+                <h2 class="text-5xl md:text-6xl font-bold mt-4 mb-6">What <span class="gradient-text">Drives Us</span></h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    The principles that guide everything we create
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card-premium p-10 text-center" data-aos="fade-up">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
+                        <i class="fas fa-bolt text-4xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Innovation First</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Engineering precision and efficiency into every project, transforming bold ideas into future-ready solutions.
+                    </p>
+                </div>
+                
+                <div class="card-premium p-10 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-yellow-500/20 flex items-center justify-center">
+                        <i class="fas fa-seedling text-4xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Sustainable Growth</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Strategies designed for long-term resilience, scalability, and meaningful impact that compounds over time.
+                    </p>
+                </div>
+                
+                <div class="card-premium p-10 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
+                        <i class="fas fa-brain text-4xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Timeless Wisdom</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Harmonizing ancient philosophical depth with cutting-edge innovation for purposeful technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-32 relative">
+        <div class="section-divider mb-20"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="card-premium p-16 text-center max-w-4xl mx-auto" data-aos="zoom-in">
+                <span class="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400 text-sm font-semibold inline-block mb-6">
+                    Let's Connect
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Join Us on This <span class="gradient-text">Journey</span></h2>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    Partner with us to create innovative solutions that make a lasting impact
+                </p>
+                <a href="contact.html" class="btn-primary inline-flex items-center space-x-2">
+                    <span>Get in Touch</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="logo.png" alt="Ved.digital Logo" class="h-12 w-12">
+                        <span class="text-2xl font-bold gradient-text">Ved.digital</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Bridging ancient wisdom with cutting-edge technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-orange-500 flex items-center justify-center transition-all duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-orange-500 flex items-center justify-center transition-all duration-300"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-orange-500 flex items-center justify-center transition-all duration-300"><i class="fab fa-github"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-orange-500 flex items-center justify-center transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-orange-500 transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-orange-500 transition-colors">Services</a></li>
+                        <li><a href="portfolio.html" class="text-gray-400 hover:text-orange-500 transition-colors">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-orange-500 transition-colors">AI Solutions</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-orange-500 transition-colors">Blockchain</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-orange-500 transition-colors">Web Development</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-orange-500 transition-colors">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center space-x-3"><i class="fas fa-map-marker-alt text-orange-500"></i><span>Uttarakhand, India</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-envelope text-orange-500"></i><span>info@ved.digital</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone text-orange-500"></i><span>+91 9891265432</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">&copy; 2026 Ved.digital. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-orange-500 text-sm transition-colors">Privacy</a>
+                    <a href="#" class="text-gray-500 hover:text-orange-500 text-sm transition-colors">Terms</a>
+                    <a href="#" class="text-gray-500 hover:text-orange-500 text-sm transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
