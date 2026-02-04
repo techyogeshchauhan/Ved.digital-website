@@ -1,0 +1,40 @@
+<nav class="fixed w-full z-50 nav-bar">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <a href="{{ url_for('index') }}" class="flex items-center space-x-3 group">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-600 rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Ved.digital Logo" class="h-12 w-12 relative transition-transform duration-300 group-hover:rotate-12">
+                </div>
+                <div>
+                    <span class="text-2xl font-bold gradient-text block">Ved.digital</span>
+                    <span class="text-xs sanskrit-text block mt-0.5">Veda • Knowledge • Technology</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="{{ url_for('index') }}" class="nav-link text-gray-100 hover:text-primary {% if request.endpoint == 'index' %}text-orange-500{% endif %}">Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link text-gray-100 hover:text-primary {% if request.endpoint == 'about' %}text-orange-500{% endif %}">About</a>
+                <a href="{{ url_for('services') }}" class="nav-link text-gray-100 hover:text-primary {% if request.endpoint == 'services' %}text-orange-500{% endif %}">Services</a>
+                <a href="{{ url_for('portfolio') }}" class="nav-link text-gray-100 hover:text-primary {% if request.endpoint == 'portfolio' %}text-orange-500{% endif %}">Portfolio</a>
+                <a href="{{ url_for('insights') }}" class="nav-link text-gray-100 hover:text-primary {% if request.endpoint == 'insights' %}text-orange-500{% endif %}">Insights</a>
+                <a href="{{ url_for('contact') }}" class="gradient-bg text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-bold">Contact Us</a>
+            </div>
+            
+            <button class="md:hidden text-gray-100" id="mobile-menu-btn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="hidden md:hidden glass-effect" id="mobile-menu">
+        <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="{{ url_for('index') }}" class="block text-gray-100 hover:text-primary transition-colors">Home</a>
+            <a href="{{ url_for('about') }}" class="block text-gray-100 hover:text-primary transition-colors">About</a>
+            <a href="{{ url_for('services') }}" class="block text-gray-100 hover:text-primary transition-colors">Services</a>
+            <a href="{{ url_for('portfolio') }}" class="block text-gray-100 hover:text-primary transition-colors">Portfolio</a>
+            <a href="{{ url_for('insights') }}" class="block text-gray-100 hover:text-primary transition-colors">Insights</a>
+            <a href="{{ url_for('contact') }}" class="block gradient-bg text-white px-6 py-2 rounded-full text-center font-bold">Contact Us</a>
+        </div>
+    </div>
+</nav>
